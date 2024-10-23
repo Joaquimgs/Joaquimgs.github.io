@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reserva de Sillas para Personas con Discapacidad - Aeropuerto BCN</title>
+    <style>
+        body {
+            font-family: Calibri, sans-serif;
+            margin: 0;
+            padding: 20px;
+            color: #FFFFFF;
+            background: url('https://i.ibb.co/mD92k3M/srG.gif') no-repeat center center fixed;
+            background-size: cover;
+        }
+        .container {
+            max-width: 700px;
+            margin: auto;
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+        }
+        input, select, textarea {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.1);
+            box-sizing: border-box;
+        }
+        input[type="submit"] {
+            background-color: #28A745;
+            color: white;
+            border: none;
+            cursor: pointer;
+            padding: 15px;
+            font-size: 16px;
+        }
+        input[type="submit"]:hover {
+            background-color: #218838;
+        }
+        input:focus, select:focus {
+            border-color: #007BFF;
+            outline: none;
+        }
+        .task-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .task-list li {
+            display: flex;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 1px solid #ddd;
+        }
+        .task-list li:last-child {
+            border-bottom: none;
+        }
+        .task-list input[type="checkbox"] {
+            margin-right: 10px;
+            width: 20px;
+            height: 20px;
+        }
+        .task-list label {
+            flex: 1;
+        }
+        @media (min-width: 768px) {
+            .container {
+                max-width: 850px;
+            }
+        }
+        @media (max-width: 767px) {
+            body {
+                padding: 10px;
+                background-size: auto;
+            }
+            .container {
+                max-width: 100%;
+                padding: 15px;
+            }
+            h1 {
+                font-size: 24px;
+            }
+            input, select, textarea {
+                padding: 10px;
+            }
+            input[type="submit"] {
+                padding: 12px;
+                font-size: 14px;
+            }
+            .fixed-image {
+                display: none;
+            }
+        }
+        .fixed-image {
+            position: fixed;
+            bottom: 10px;
+            right: 10px;
+            width: 150px;
+            z-index: 100;
+        }
+    </style>
+    <script>
+        function redirigir() {
+            window.location.href = "confirmacion.html";
+        }
+    </script>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Reserva de sillas para el Aeropuerto Josep Tarradellas Barcelona-El Prat</h1>
+        <form onsubmit="event.preventDefault(); redirigir();"> <!-- Evita el envío del formulario y redirige a la otra página -->
+            <label for="nombre">Nombre Completo:</label>
+            <input type="text" id="nombre" name="nombre" required>
+
+            <label for="fecha">Fecha de Vuelo:</label>
+            <input type="date" id="fecha" name="fecha" required>
+
+            <label for="alquiler">Tiempo de alquiler (en horas):</label>
+            <input type="text" id="alquiler" name="alquiler" required>
+
+            <label for="vuelo">Número de Vuelo:</label>
+            <input type="text" id="vuelo" name="vuelo" required>
+
+            <label for="discapacidad">Tipo de Discapacidad:</label>
+            <ul class="task-list">
+                <li>
+                    <input type="checkbox" id="motriz_paraplejia" name="discapacidad[]" value="motriz_paraplejia">
+                    <label for="motriz_paraplejia">Paraplejía (Parálisis de piernas)</label>
+                </li>
+                <li>
+                    <input type="checkbox" id="motriz_tetraplejia" name="discapacidad[]" value="motriz_tetraplejia">
+                    <label for="motriz_tetraplejia">Tetraplejía (Parálisis de brazos y piernas)</label>
+                </li>
+                <li>
+                    <input type="checkbox" id="motriz_debilidad" name="discapacidad[]" value="motriz_debilidad">
+                    <label for="motriz_debilidad">Debilidad muscular</label>
+                </li>
+                <li>
+                    <input type="checkbox" id="visual_ceguera" name="discapacidad[]" value="visual_ceguera">
+                    <label for="visual_ceguera">Ceguera total</label>
+                </li>
+                <li>
+                    <input type="checkbox" id="visual_baja_vision" name="discapacidad[]" value="visual_baja_vision">
+                    <label for="visual_baja_vision">Baja visión</label>
+                </li>
+                <li>
+                    <input type="checkbox" id="auditiva_sordera" name="discapacidad[]" value="auditiva_sordera">
+                    <label for="auditiva_sordera">Sordera</label>
+                </li>
+                <li>
+                    <input type="checkbox" id="auditiva_hipoacusia" name="discapacidad[]" value="auditiva_hipoacusia">
+                    <label for="auditiva_hipoacusia">Hipoacusia (Disminución de la audición)</label>
+                </li>
+                <li>
+                    <input type="checkbox" id="mental_otros" name="discapacidad[]" value="mental_otros">
+                    <label for="mental_otros">Otras discapacidades mentales</label>
+                </li>
+            </ul>
+
+            <label for="observaciones">Observaciones:</label>
+            <textarea id="observaciones" name="observaciones" rows="4" placeholder="Añade tus comentarios aquí"></textarea>
+
+            <input type="submit" value="Reservar">
+        </form>
+    </div>
+
+    <img src="https://i.ibb.co/sqYnzc1/Logo-upc-blanco-png.png" alt="Imagen" class="fixed-image">
+
+</body>
+</html>
