@@ -27,6 +27,10 @@
             text-align: center;
             color: #333;
         }
+        h3 {
+            text-align: center;
+            color: #000;
+        }
         label {
             display: block;
             margin-bottom: 8px;
@@ -123,8 +127,9 @@
 <body>
 
     <div class="container">
-        <h1>Reserva de sillas para el Aeropuerto Josep Tarradellas Barcelona-El Prat</h1>
-        <form onsubmit="event.preventDefault(); redirigir();"> <!-- Evita el envío del formulario y redirige a la otra página -->
+        <h1>Flymobility reservas</h1>
+        <h3>Aeropuerto Josep Tarradellas Barcelona-El Prat</h3>
+        <form onsubmit="event.preventDefault(); redirigir();">
             <label for="nombre">Nombre Completo:</label>
             <input type="text" id="nombre" name="nombre" required>
 
@@ -168,9 +173,9 @@
                     <label for="auditiva_hipoacusia">Hipoacusia (Disminución de la audición)</label>
                 </li>
                 <li>
-                    <input type="checkbox" id="mental_otros" name="discapacidad[]" value="mental_otros">
-                    <label for="mental_otros">Otras discapacidades mentales</label>
-                </li>
+                    <input type="checkbox" id="otros" name="discapacidad[]" value="otros">
+                    <label for="otros">Otras restricciones:</label>
+                </li><textarea id="observaciones_discapacidad" name="observaciones_discapacidad" rows="2" placeholder="Añade tu restricción aquí"></textarea>
             </ul>
 
             <label for="observaciones">Observaciones:</label>
