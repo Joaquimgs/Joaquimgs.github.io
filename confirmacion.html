@@ -30,6 +30,7 @@
         p {
             font-size: 18px;
             color: #333;
+            margin: 10px 0;
         }
         a {
             display: inline-block;
@@ -39,17 +40,29 @@
             color: white;
             text-decoration: none;
             border-radius: 5px;
+            transition: background-color 0.3s ease;
         }
         a:hover {
             background-color: #0056b3;
         }
     </style>
+    <script>
+        function generarNumeroReserva() {
+            const numero = Math.floor(Math.random() * 99999) + 1;
+            return numero.toString().padStart(5, '0'); // Añade ceros a la izquierda si es necesario
+        }
+
+        document.addEventListener("DOMContentLoaded", function() {
+            document.getElementById("numero-reserva").textContent = generarNumeroReserva();
+        });
+    </script>
 </head>
 <body>
 
     <div class="container">
         <h1>¡Reserva Confirmada!</h1>
         <p>Tu reserva de sillas ha sido confirmada exitosamente.</p>
+        <p>Tu número de reserva es: <strong id="numero-reserva"></strong></p>
         <p>Te hemos enviado un correo con los detalles de tu reserva.</p>
         <!-- Redirige al sitio de Aena al hacer clic -->
         <a href="https://www.aena.es/ca/josep-tarradellas-barcelona-el-prat.html">Volver al inicio</a>
